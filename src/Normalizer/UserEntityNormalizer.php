@@ -18,7 +18,7 @@ class UserEntityNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function denormalize($data, $class, $format = NULL, array $context = []) {
+  public function denormalize($data, $class, $format = NULL, array $context = []): mixed {
 
     $entity = parent::denormalize($data, $class, $format, $context);
 
@@ -36,7 +36,7 @@ class UserEntityNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
+  public function normalize($object, $format = NULL, array $context = []): array|string|int|float|bool|\ArrayObject|NULL {
     $normalized_data = parent::normalize($object, $format, $context);
     if (!empty($context['content_sync'])) {
       $normalized_data['pass'] = [

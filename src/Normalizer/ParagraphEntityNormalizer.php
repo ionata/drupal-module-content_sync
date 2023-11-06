@@ -50,7 +50,7 @@ class ParagraphEntityNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function denormalize($data, $class, $format = NULL, array $context = []) {
+  public function denormalize($data, $class, $format = NULL, array $context = []): mixed {
     if(isset($data['parent_id']['target_uuid']) &&
        isset($data['parent_id']['target_type']) ) {
       $referenced_entity_uuid = $data['parent_id']['target_uuid'];
@@ -68,7 +68,7 @@ class ParagraphEntityNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
+  public function normalize($object, $format = NULL, array $context = []): array|string|int|float|bool|\ArrayObject|NULL {
     $normalized_data = parent::normalize($object, $format, $context);
     if ($object->getParentEntity()){
       // We are only interested in content entities.

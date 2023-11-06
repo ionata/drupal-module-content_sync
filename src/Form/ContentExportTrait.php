@@ -86,7 +86,7 @@ trait ContentExportTrait {
    * @param array $context
    *   The batch context.
    */
-  public function processContentExportFiles($entities, $serializer_context = [], &$context) {
+  public function processContentExportFiles($entities, $serializer_context = [], &$context = []) {
     //Initialize Batch
     if (empty($context['sandbox'])) {
       $context['sandbox']['progress'] = 0;

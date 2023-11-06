@@ -58,7 +58,7 @@ class FileEntityNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function denormalize($data, $class, $format = NULL, array $serializer_context = array()) {
+  public function denormalize($data, $class, $format = NULL, array $serializer_context = []): mixed {
 
     $file_data = '';
 
@@ -131,7 +131,7 @@ class FileEntityNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $serializer_context = array()) {
+  public function normalize($object, $format = NULL, array $serializer_context = []): array|string|int|float|bool|\ArrayObject|NULL {
     $data = parent::normalize($object, $format, $serializer_context);
 
     // The image will be saved in the export directory.

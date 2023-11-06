@@ -45,7 +45,7 @@ class ContentEntityNormalizer extends BaseContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function denormalize($data, $class, $format = NULL, array $context = []) {
+  public function denormalize($data, $class, $format = NULL, array $context = []): mixed {
     if (is_null($data)) {
       return NULL;
     }
@@ -87,7 +87,7 @@ class ContentEntityNormalizer extends BaseContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
+  public function normalize($object, $format = NULL, array $context = []): array|string|int|float|bool|\ArrayObject|NULL {
     /* @var ContentEntityInterface $object */
     $normalized_data = parent::normalize($object, $format, $context);
     $normalized_data['_content_sync'] = $this->getContentSyncMetadata($object, $context);
@@ -102,14 +102,14 @@ class ContentEntityNormalizer extends BaseContentEntityNormalizer {
   /**
    * @inheritdoc
    */
-  public function supportsNormalization($data, $format = NULL) {
+  public function supportsNormalization($data, string $format = NULL, array $context = []): bool {
     return parent::supportsNormalization($data, $format) && !empty($data->is_content_sync);
   }
 
   /**
    * @inheritdoc
    */
-  public function supportsDenormalization($data, $type, $format = NULL) {
+  public function supportsDenormalization($data, string $type, string $format = NULL, array $context = []): bool {
     return parent::supportsDenormalization($data, $type, $format);
   }
 

@@ -44,7 +44,7 @@ trait ContentImportTrait {
    * @param array $context
    *   The batch context.
    */
-  public function syncContent(array $content_to_sync, $serializer_context = [], &$context) {
+  public function syncContent(array $content_to_sync, $serializer_context = [], &$context = []) {
     if (empty($context['sandbox'])) {
       $directory = $serializer_context['content_sync_directory_entities'];
       $queue = $this->contentSyncManager->generateImportQueue($content_to_sync, $directory);
@@ -105,7 +105,7 @@ trait ContentImportTrait {
    * @param array $context
    *   The batch context.
    */
-  public function deleteContent(array $content_to_delete, $serializer_context = [], &$context) {
+  public function deleteContent(array $content_to_delete, $serializer_context = [], &$context = []) {
     if (empty($context['sandbox'])) {
       $directory = $serializer_context['content_sync_directory_entities'];
       $context['sandbox']['progress'] = 0;
